@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import DemoRedux from '../demo-redux/containers'
 
 export default class App extends Component {
   render() {
@@ -7,12 +8,7 @@ export default class App extends Component {
         <header>
           <h1>Todo List</h1>
         </header>
- 
-        <ul>
-          <li>twk</li>
-          <li>twk</li>
-          <li>twk</li>
-        </ul>
+        <DemoRedux />
       </div>
     );
   }
