@@ -9,6 +9,7 @@
     "lint": "eslint ./src/client ./src/imports ./src/server"
   },
   "dependencies": {
+    "antd": "^2.6.0",
     "babel-runtime": "6.18.0",
     "eslint": "^3.12.2",
     "meteor-node-stubs": "~0.2.0",

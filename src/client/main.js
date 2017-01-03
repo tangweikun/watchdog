@@ -1,4 +1,5 @@
 import React from 'react'
+import 'antd/dist/antd.css'
 import { Meteor } from 'meteor/meteor'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
