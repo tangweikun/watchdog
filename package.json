@@ -1,8 +1,11 @@
 {
   "name": "watchdog",
   "private": true,
+  "config": {
+    "mongo_url:": "MONGO_URL=mongodb://twk：twk@ds115738.mlab.com:15738/twk"
+  },
   "scripts": {
-    "start": "meteor run",
+    "start": "export $npm_package_config_mongo_url && meteor run",
     "lint": "eslint ./src/client ./src/imports ./src/server"
   },
   "dependencies": {
