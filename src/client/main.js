@@ -5,7 +5,7 @@ import { Provider } from 'react-redux'
 import { Router, browserHistory } from 'react-router'
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
 import configureStore from '../store/configureStore'
-import App from '../imports/app/app.jsx';
+import App from '../imports/modules/app/app.jsx';
 import routes from '../imports/routes'
 
 const store = configureStore()

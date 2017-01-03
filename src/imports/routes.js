@@ -1,6 +1,6 @@
 import React from 'react'
 import { IndexRoute, Route } from 'react-router'
-import App from './app/app.jsx'
+import App from './modules/app/app.jsx'
 
 export default (
   <Route>
