@@ -5,3 +5,5 @@ node_modules/
 bundle/
 
 *.gz
+
+yarn.lock
