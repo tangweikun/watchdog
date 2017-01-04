@@ -1,4 +1,5 @@
 import React from 'react'
+import { browserHistory } from 'react-router'
 import { Layout, Menu, Icon  } from 'antd'
 import 'antd/dist/antd.css'
 
@@ -17,26 +18,27 @@ export default class MainLayout extends React.Component {
         >
           <Menu
             mode="inline"
-            defaultSelectedKeys={['1']}
+            defaultSelectedKeys={['weight']}
             defaultOpenKeys={['sub1']}
+            onSelect={({ key }) => browserHistory.push(key)}
           >
-            <Menu.Item key="1">
+            <Menu.Item key="weight">
               <Icon type="user" />
               <span className="nav-text">体重</span>
             </Menu.Item>
-            <Menu.Item key="2">
+            <Menu.Item key="push-up">
               <Icon type="user" />
               <span className="nav-text">俯卧撑</span>
             </Menu.Item>
-            <Menu.Item key="3">
+            <Menu.Item key="sleep">
               <Icon type="user" />
               <span className="nav-text">睡眠</span>
             </Menu.Item>
-            <Menu.Item key="4">
+            <Menu.Item key="income">
               <Icon type="user" />
               <span className="nav-text">收入</span>
             </Menu.Item>
-            <Menu.Item key="5">
+            <Menu.Item key="expend">
               <Icon type="user" />
               <span className="nav-text">支出</span>
             </Menu.Item>
