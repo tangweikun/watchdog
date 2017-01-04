@@ -3,6 +3,7 @@ import { Route, IndexRoute } from 'react-router'
 import App from './modules/app/app.jsx'
 import MainLayout from './modules/layout/index.jsx'
 import DemoChart from './modules/demo-charts/index.jsx'
+import Login from './modules/login/index.jsx'
 
 export default (
   <Route>
@@ -15,6 +16,6 @@ export default (
       <IndexRoute component={App} />
       <Route path="/demo" component={App} />
     </Route>
-    <Route path="login" component={DemoChart} />
+    <Route path="login" component={Login} />
   </Route>
 )
