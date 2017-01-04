@@ -11,7 +11,7 @@ export default class MainLayout extends Component {
         <Header className="header" style={{ background: '#ffffff'}}>
           header
         </Header>
-        <Sider width={200} height={600}>
+        <Sider width={200} height={600} style={{ background: '#ffffff'}}>
           <Menu
             mode="inline"
             defaultSelectedKeys={['1']}
