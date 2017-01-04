@@ -1,36 +1,45 @@
-import React, { Component } from 'react'
-import { Button, Layout, Menu, Breadcrumb, Icon  } from 'antd'
+import React from 'react'
+import { Layout, Menu, Icon  } from 'antd'
 import 'antd/dist/antd.css'
 
-const { SubMenu } = Menu
-const { Header, Footer, Sider, Content } = Layout
-export default class MainLayout extends Component {
+export default class MainLayout extends React.Component {
 	render() {
+		const { Header, Footer, Sider, Content } = Layout
 		return (
       <Layout>
         <Header className="header" style={{ background: '#ffffff'}}>
-          header
+          WatchDog
         </Header>
-        <Sider width={200} height={600} style={{ background: '#ffffff'}}>
+        <Sider
+          width={200}
+          height={600}
+          style={{ background: '#ffffff'}}
+        >
           <Menu
             mode="inline"
             defaultSelectedKeys={['1']}
             defaultOpenKeys={['sub1']}
           >
-            <SubMenu key="sub1" title={<span><Icon type="user" />subnav 1</span>}>
-              <Menu.Item key="1">option1</Menu.Item>
-              <Menu.Item key="2">option2</Menu.Item>
-            </SubMenu>
-            <SubMenu key="sub2" title={<span><Icon type="laptop" />subnav 2</span>}>
-              <Menu.Item key="5">option5</Menu.Item>
-              <Menu.Item key="6">option6</Menu.Item>
-              <Menu.Item key="7">option7</Menu.Item>
-            </SubMenu>
-            <SubMenu key="sub3" title={<span><Icon type="notification" />subnav 3</span>}>
-              <Menu.Item key="9">option9</Menu.Item>
-              <Menu.Item key="10">option10</Menu.Item>
-              <Menu.Item key="11">option11</Menu.Item>
-            </SubMenu>
+            <Menu.Item key="1">
+              <Icon type="user" />
+              <span className="nav-text">体重</span>
+            </Menu.Item>
+            <Menu.Item key="2">
+              <Icon type="user" />
+              <span className="nav-text">俯卧撑</span>
+            </Menu.Item>
+            <Menu.Item key="3">
+              <Icon type="user" />
+              <span className="nav-text">睡眠</span>
+            </Menu.Item>
+            <Menu.Item key="4">
+              <Icon type="user" />
+              <span className="nav-text">收入</span>
+            </Menu.Item>
+            <Menu.Item key="5">
+              <Icon type="user" />
+              <span className="nav-text">支出</span>
+            </Menu.Item>
           </Menu>
         </Sider>
         <Content style={{ padding: '0 24px', minHeight: 280 }}>
