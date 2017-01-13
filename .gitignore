@@ -7,3 +7,5 @@ bundle/
 *.gz
 
 yarn.lock
+
+*.log

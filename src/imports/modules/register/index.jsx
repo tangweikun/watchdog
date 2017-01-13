@@ -4,7 +4,7 @@ import { browserHistory } from 'react-router'
 
 const FormItem = Form.Item
 
-export default Form.create()(class Login extends React.Component {
+export default Form.create()(class Register extends React.Component {
   static propTypes = {
     form: PropTypes.object,
   }
@@ -42,9 +42,11 @@ export default Form.create()(class Login extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    this.props.form.validateFields((err, values) => {
-      if (!err) console.log('--->', values)
-      console.log('-')
+    this.props.form.validateFields((err, { username, password }) => {
+      if (!err) {
+        Meteor.call('register', username, password)
+        browserHistory.push('/')
+      }
     })
   }
 
@@ -55,7 +57,7 @@ export default Form.create()(class Login extends React.Component {
       <Form style={styles.body} className="login-form">
         <div style={styles.content}>
           <div style={styles.title}>
-            WatchDog
+            注册
           </div>
           <div style={{ marginTop: '10px' }}>
             <FormItem>
@@ -80,18 +82,7 @@ export default Form.create()(class Login extends React.Component {
                 onClick={this.handleSubmit}
                 style={{ width: '100%', backgroundColor: '#00acc2' }}
               >
-                登录
-              </Button>
-            </FormItem>
-            <FormItem>
-              <Button
-                type="primary"
-                htmlType="submit"
-                className="login-form-button"
-                onClick={() => browserHistory.push('/register')}
-                style={{ width: '100%', backgroundColor: '#00acc2' }}
-              >
-                注册
+                提交
               </Button>
             </FormItem>
             <div style={styles.footer}>
