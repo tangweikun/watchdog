@@ -16,8 +16,8 @@ export default (
 }}
     >
       <IndexRoute component={App} />
-      <Route path="/demo" component={App} />
       <Route path="/weight" component={Weight} />
+      <Route path="/push-up" component={App} />
     </Route>
     <Route path="login" component={Login} />
     <Route path="register" component={Register} />

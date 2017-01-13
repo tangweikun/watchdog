@@ -7,20 +7,21 @@ export default class MainLayout extends React.Component {
 	render() {
 		const { Header, Footer, Sider, Content } = Layout
 		return (
-      <Layout>
-        <Header className="header" style={{ background: '#ffffff'}}>
+      <Layout style={{ height: '100%' }}>
+        <Header className="header" style={{ background: 'rgba(0, 0, 0, 0.87)', color: '#FFFFFF' }}>
           WatchDog
         </Header>
         <Sider
           width={200}
-          height={600}
-          style={{ background: '#ffffff'}}
+          height='100%'
+          style={{ background: 'rgba(0, 0, 0, 0.67)' }}
         >
           <Menu
             mode="inline"
             defaultSelectedKeys={['weight']}
             defaultOpenKeys={['sub1']}
             onSelect={({ key }) => browserHistory.push(key)}
+            style={{ backgroundColor: 'rgba(0, 0, 0, 0.17)', color: '#e1ffff' }}
           >
             <Menu.Item key="weight">
               <Icon type="user" />
@@ -44,10 +45,12 @@ export default class MainLayout extends React.Component {
             </Menu.Item>
           </Menu>
         </Sider>
-        <Content style={{ padding: '0 24px', minHeight: 280 }}>
-          {this.props.children}
-        </Content>
-        <Footer style={{ textAlign: 'center' }}>
+        {/* <Layout> */}
+          <Content style={{ padding: '0 24px', height: '100%' }}>
+            {this.props.children}
+          </Content>
+        {/* </Layout> */}
+        <Footer style={{ textAlign: 'center', background: 'rgba(0, 0, 0, 0.37)' }}>
           Ant Design
         </Footer>
       </Layout>
