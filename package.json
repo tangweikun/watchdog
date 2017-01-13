@@ -2,7 +2,7 @@
   "name": "watchdog",
   "private": true,
   "config": {
-    "mongo_url:": "MONGO_URL=mongodb://twk：twk@ds115738.mlab.com:15738/twk"
+    "mongo_url": "MONGO_URL=mongodb://twk:twk@ds115738.mlab.com:15738/twk"
   },
   "scripts": {
     "start": "export $npm_package_config_mongo_url && meteor run -p 4444",

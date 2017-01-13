@@ -6,7 +6,7 @@ export default function () {
 		'weight.save'(weight) {
 			console.log('--->')
 			Weight.insert({ weight })
-			const t = Weight.findOne({})
+			const t = Weight.find({}).fetch()
 			console.log({ t })
 		},
 	})
