@@ -5,7 +5,7 @@ export default function () {
 	Meteor.methods({
 		'weight.save'(weight) {
 			console.log('--->')
-			Weight.insert({ weight })
+			Weight.insert({ weight, userId: Meteor.userId() })
 			const t = Weight.find({}).fetch()
 			console.log({ t })
 		},

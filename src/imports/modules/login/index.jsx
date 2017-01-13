@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react'
 import { Button, Form, Icon, Input } from 'antd'
 import { browserHistory } from 'react-router'
+import { Meteor } from 'meteor/meteor'
 
 const FormItem = Form.Item
 
@@ -14,7 +15,6 @@ export default Form.create()(class Login extends React.Component {
     return {
       title: {
         fontSize: '60px',
-        // height: '240px',
         lineHeight: 1.33,
       },
       body: {
@@ -42,9 +42,12 @@ export default Form.create()(class Login extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    this.props.form.validateFields((err, values) => {
-      if (!err) console.log('--->', values)
-      console.log('-')
+    this.props.form.validateFields((err, { username, password }) => {
+      if (!err) {
+        Meteor.loginWithPassword(username, password, (error) => {
+          if (!error) browserHistory.push('/')
+        })
+      }
     })
   }
 
