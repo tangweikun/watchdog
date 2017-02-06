@@ -4,10 +4,10 @@ import { Weight } from '../../imports/collections'
 export default function () {
 	Meteor.methods({
 		'weight.save'(weight) {
-			console.log('--->')
-			Weight.insert({ weight, userId: Meteor.userId() })
-			const t = Weight.find({}).fetch()
-			console.log({ t })
+			Weight.insert({ weight, userId: Meteor.userId(), createdAt: new Date() })
+		},
+		'weight.get'() {
+			return Weight.find({ userId: Meteor.userId() }).fetch()
 		},
 	})
 }

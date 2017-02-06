@@ -8,3 +8,13 @@ export const saveWeight = () =>
 	const { value } = getState().weight
 	Meteor.call('weight.save', value)
 }
+
+export const getWeight = () =>
+  (dispatch, getState, { Meteor }) => {
+	Meteor.call('weight.get', (err, formData) => {
+		dispatch({
+			type: 'GET_WEIGHT',
+			formData,
+		})
+	})
+}
