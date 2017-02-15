@@ -39,7 +39,7 @@ export default class Weight extends React.Component {
         <p>{weight}</p>
         <Chart {...options} onReady={this.ready}>
           <Chart.Line
-            name="最高气温"
+            name="体重"
             data={dataList}/>
         </Chart>
       </div>
