@@ -3,7 +3,7 @@ import { browserHistory, withRouter } from 'react-router'
 import { Layout, Menu, Icon, Modal  } from 'antd'
 import 'antd/dist/antd.css'
 
-export default class MainLayout extends React.Component {
+class MainLayout extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = { visible: false }
@@ -11,6 +11,7 @@ export default class MainLayout extends React.Component {
 
 	render() {
 		const { Header, Footer, Sider, Content } = Layout
+		const pathname = this.props.location.pathname
 		return (
       <Layout style={{ height: '100%' }}>
         <Header className="header" style={{ background: 'rgba(0, 0, 0, 0.87)', color: '#FFFFFF' }}>
@@ -53,7 +54,7 @@ export default class MainLayout extends React.Component {
         </Sider>
         <Content style={{ padding: '0 24px', height: '100%' }}>
           <Modal
-            title="记录体重"
+            title={pathname}
             visible={this.state.visible}
             okText="保存"
             cancelText="取消"
@@ -71,3 +72,5 @@ export default class MainLayout extends React.Component {
 		)
 	}
 }
+
+export default withRouter(MainLayout)
