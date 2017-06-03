@@ -1,17 +1,22 @@
 import React from 'react'
 import { browserHistory, withRouter } from 'react-router'
 import { Layout, Menu, Icon, Modal  } from 'antd'
+import { Meteor } from 'meteor/meteor'
 import 'antd/dist/antd.css'
 
 class MainLayout extends React.Component {
 	constructor(props) {
 		super(props)
-		this.state = { visible: false }
+		this.state = { visible: false, value: '' }
+	}
+
+	save(category, value) {
+		Meteor.call(`${category}.save`, value)
 	}
 
 	render() {
 		const { Header, Footer, Sider, Content } = Layout
-		const pathname = this.props.location.pathname
+		const category = this.props.location.pathname
 		return (
       <Layout style={{ height: '100%' }}>
         <Header className="header" style={{ background: 'rgba(0, 0, 0, 0.87)', color: '#FFFFFF' }}>
@@ -54,14 +59,17 @@ class MainLayout extends React.Component {
         </Sider>
         <Content style={{ padding: '0 24px', height: '100%' }}>
           <Modal
-            title={pathname}
+            title={category}
             visible={this.state.visible}
             okText="保存"
             cancelText="取消"
-            onOk={() => this.setState({ visible: false })}
             onCancel={() => this.setState({ visible: false })}
+            onOk={() => {
+	           this.setState({ visible: false })
+	           this.save(category, this.state.value)
+}}
           >
-            <input />
+            <input value={this.state.value} onChange={e => this.setState({ value: e.target.value })} />
           </Modal>
           {this.props.children}
         </Content>

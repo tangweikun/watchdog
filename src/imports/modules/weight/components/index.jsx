@@ -8,7 +8,6 @@ export default class Weight extends React.Component {
 	}
 
 	render() {
-		console.log('---', this.props.formData)
 		const createdAtList = []
 		const dataList = []
 		this.props.formData && this.props.formData.forEach(item => {
@@ -31,18 +30,14 @@ export default class Weight extends React.Component {
 				}
 			}],
 		}
-		const { changeValue, weight, saveWeight } = this.props
+
 		return (
-      <div>
-        <input value={weight} onChange={(e) => changeValue(e.target.value)} />
-        <Button type="primary" onClick={() => saveWeight()}>保存</Button>
-        <p>{weight}</p>
         <Chart {...options} onReady={this.ready}>
           <Chart.Line
             name="体重"
-            data={dataList}/>
+            data={dataList}
+          />
         </Chart>
-      </div>
 		)
 	}
 }
